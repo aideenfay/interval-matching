@@ -582,7 +582,9 @@ compressed_lower_distance_matrix read_file(std::istream& input_stream, file_form
 		return read_point_cloud(input_stream);
 	case RIPSER:
 		return read_ripser(input_stream);
-	}
+	default:
+            throw std::invalid_argument("Unsupported file format provided");
+    }
 }
 
 void print_usage_and_exit(int exit_code) {
